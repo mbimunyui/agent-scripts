@@ -10,8 +10,9 @@ clear
 if [ $USER = root ]
 then
 	File=/dev/err_file
-	if [ test -f "$File ]
+	if [ -f "$File" ]
 	then
+        echo " "
 	
 	else
 		touch /dev/err_file
