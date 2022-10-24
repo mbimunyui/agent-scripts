@@ -1,0 +1,110 @@
+#!/bin/bash
+# This script will installed Jenkins
+
+# you can run this script if only you are root
+
+if [ $USER = "root" ]
+then
+
+	File=/dev/err_file
+	if [ -f "$File" ]
+	then
+        echo " "
+	
+	else
+		touch /dev/err_file
+	fi
+####.....INSTALLING JAVA.............
+		clear
+        echo " Installing Java..... "
+	sleep 5
+	echo "" >> /dev/err_file
+	date >> /dev/err_file
+	
+        echo " Installing Java " >> /dev/err_file
+        
+
+
+
+        yum install java-11-openjdk-devel -y 2>> /tmp/err_file
+
+        if [ $? -eq 0 ]
+        then
+				clear
+                echo " Java install successfully"
+		echo " Java installed succesfully \n installation completed " >> /dev/err_file
+				
+        else
+                echo " Java failled to  install" 
+		echo "Java failled to install" >> /dev/err_file
+                echo " " >> /dev/err_file
+
+        fi
+#////////......END JAVA INSTALLATION........
+
+########.......BEGINING JENKINS INSTALLATION..........
+        sleep 3
+		clear
+        echo " adding Jenkins repository..... "
+		echo""
+		sleep 3
+        curl --silent --location http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo | sudo tee /etc/yum.repos.d/jenkins.repo 2>> /dev/err_file
+
+         rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+        sleep 3
+		clear
+
+        echo " Installing the latest stable version of jenkins "
+	sleep 5
+       
+        echo "Jenkins installation" >> /dev/err_file
+       
+		sleep 3
+
+         yum install jenkins -y 2>> /dev/err_file
+        if [ $? -eq 0 ]
+        then
+				clear
+                echo " "
+                echo " Jenkins installed successfully "
+		echo "Jenkins installed successfully" >> /dev/err_file
+		sleep 5
+        else
+                echo " Jenkins failled to installed "
+		sleep 5
+        fi
+        
+        echo " "
+        echo "Starting Jenkins"
+
+        sudo systemctl start jenkins
+        sleep 3
+        echo " "
+        echo "checking jenkins status"
+		sleep 3
+         sudo systemctl status jenkins
+
+         sleep 3
+         echo " "
+         echo "Enabling Jenkins to start at boot time"
+        sudo systemctl enable jenkins
+
+        echo " SUCCESS"
+	sleep 5
+fi
+sleep 3
+echo ""
+echo " Adjusting the firewall"
+sudo firewall-cmd --permanent --zone=public --add-port=8080/tcp
+
+sudo firewall-cmd --reload
+
+echo ""
+clear
+ifconfig
+echo ""
+sleep 3
+echo " copy you IP address above and open jenkins on yuor browser: http://your_IP_addr:8080" 
+
+sleep 10
+exit
