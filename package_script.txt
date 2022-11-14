@@ -1,0 +1,526 @@
+#this line is the command to extract the type of os running
+#type=$(cat /etc/os-release | grep ID_LIKE | awk -F= '{print $2}')
+
+#!/bin/bash
+ #Author : Utrains
+    #Date : 01-Nov-2021
+
+## ---------- script that Install some packages in Linux -----------------
+clear
+if [ $USER = root ]
+then
+	File=/dev/err_file
+	if [ -f "$File" ]
+	then
+        echo " "
+	
+	else
+		touch /dev/err_file
+	fi
+     type=$(hostnamectl | grep "Operating System" | awk '{print $3}')
+    #######...STARTING INSTALLATION FOR CENTOS.......
+    if [ $type = "CentOS" ] || [ $type = "Oracle" ]
+    then
+		echo -e "You are about to install the following packages: \n wget \n net-tools \n sysstat \n finger \n gcc \n make \n python3 \n epel-release \n git "
+		echo "" 
+		sleep 3
+        #installing finger
+                        echo "installing finger....."
+                        sleep 3
+                        echo " " >> /dev/err_file
+						date >> /dev/err_file
+						echo "installing finger" >> /dev/err_file
+            yum install finger -y 2>> /dev/err_file
+            if [ $? -eq 0 ]
+            then
+                                clear
+
+                echo "finger installed successfully"
+                                sleep 5
+            else
+                echo "finger failled to installed"
+				echo ""
+				echo "READ THE ERROR FILE AT /dev/err_file"
+				sleep 6
+           fi
+                #installing curl
+                clear
+                echo "installing curl...."
+                sleep 3
+                echo " " >> /dev/err_file
+               date >> /dev/err_file
+						echo "installing curl" >> /dev/err_file
+            yum install curl -y 2>> /dev/err_file
+            if [ $? -eq 0 ]
+            then
+                clear
+
+                echo "curl installed successfully"
+                                sleep 3
+            else
+                echo "curl failled to installed"
+				echo ""
+				echo "READ THE ERROR FILE AT /dev/err_file"
+				sleep 6
+             fi
+                        #installing zip
+                        clear
+                        echo "installing zip...."
+                        sleep 3
+                        echo " " >> /dev/err_file
+                        date >> /dev/err_file
+						echo "installing zip" >> /dev/err_file
+            yum install zip -y 2>> /dev/err_file
+            if [ $? -eq 0 ]
+            then
+                                clear
+
+                echo "zip installed successfully"
+                                sleep 3
+            else
+                echo "zip failled to installed"
+				echo " READ THE ERROR FILE AT /dev/err_file"
+				sleep 6
+            fi
+                #installing net-tools
+                clear
+                echo "installing net-tools...."
+                sleep 3
+                echo " " >> /dev/err_file
+               date >> /dev/err_file
+						echo "installing net-tools" >> /dev/err_file
+            yum install net-tools -y 2>> /dev/err_file
+            if [ $? -eq 0 ]
+            then
+                                clear
+
+                echo "net-tools installed successfully"
+                                sleep 3
+            else
+                echo "net-tools failled to installed"
+				echo ""
+				echo "READ THE ERROR FILE AT /dev/err_file"
+            fi
+			
+			#installing sysstat
+                clear
+                echo "installing sysstat...."
+                sleep 3
+                echo " " >> /dev/err_file
+               date >> /dev/err_file
+						echo "installing sysstat" >> /dev/err_file
+            yum install sysstat -y 2>> /dev/err_file
+            if [ $? -eq 0 ]
+            then
+                                clear
+
+                echo "sysstat installed successfully"
+                                sleep 3
+            else
+                echo "sysstat failled to installed"
+				echo ""
+				echo "sysstat failled to install" >> /dev/err_file
+				echo "READ THE ERROR FILE AT /dev/err_file"
+                sleep 6
+            fi
+			
+			#installing wget
+                clear
+                echo "installing wget...."
+                sleep 3
+                echo " " >> /dev/err_file
+               date >> /dev/err_file
+						echo "installing wget" >> /dev/err_file
+            yum install wget -y 2>> /dev/err_file
+            if [ $? -eq 0 ]
+            then
+                                clear
+
+                echo "wget installed successfully"
+                                sleep 3
+            else
+                echo "net-tools failled to installed"
+				echo ""
+				echo "wget failled to install" >> /dev/err_file
+				echo "READ THE ERROR FILE AT /dev/err_file"
+                    sleep 6
+            fi
+			
+			#installing git
+                clear
+                echo "installing git...."
+                sleep 3
+                echo " " >> /dev/err_file
+               date >> /dev/err_file
+						echo "installing git" >> /dev/err_file
+            yum install git -y 2>> /dev/err_file
+            if [ $? -eq 0 ]
+            then
+                                clear
+
+                echo "git installed successfully"
+                                sleep 3
+            else
+                echo "git failled to installed"
+				echo ""
+				echo" git failled to installed " >> /dev/err_file
+				echo "READ THE ERROR FILE AT /dev/err_file"
+                sleep 6
+            fi
+			
+			#installing net-utils
+                clear
+                echo "installing net-utils...."
+                sleep 3
+                echo " " >> /dev/err_file
+               date >> /dev/err_file
+						echo "installing finger" >> /dev/err_file
+            yum install net-utils -y 2>> /dev/err_file
+            if [ $? -eq 0 ]
+            then
+                                clear
+
+                echo "net-utils installed successfully"
+                                sleep 3
+            else
+                echo "net-utils failled to installed"
+				echo ""
+				echo "net-utils failled to install" >> /dev/err_file
+				echo "READ THE ERROR FILE AT /dev/err_file"
+                sleep 6
+            fi
+			
+			#installing python3
+                clear
+                echo "installing python3...."
+                sleep 3
+                echo " " >> /dev/err_file
+               date >> /dev/err_file
+						echo "installing python3" >> /dev/err_file
+            yum install python3 -y 2>> /dev/err_file
+            if [ $? -eq 0 ]
+            then
+                                clear
+
+                echo "python3 installed successfully"
+                                sleep 3
+            else
+                echo "python3 failled to installed"
+				echo ""
+				echo "python3 failled to install" >> /dev/err_file
+				echo "READ THE ERROR FILE AT /dev/err_file"
+                sleep 6
+            fi
+			
+			#installing gcc
+                clear
+                echo "installing gcc...."
+                sleep 3
+                echo " " >> /dev/err_file
+               date >> /dev/err_file
+						echo "installing gcc" >> /dev/err_file
+            yum install gcc -y 2>> /dev/err_file
+            if [ $? -eq 0 ]
+            then
+                                clear
+
+                echo "gcc installed successfully"
+                                sleep 3
+            else
+                echo "gcc failled to installed"
+				echo ""
+				echo "gcc failled to install " >> /dev/err_file
+				echo "READ THE ERROR FILE AT /dev/err_file"
+                sleep 6
+            fi
+			
+			#installing epel-release
+                clear
+                echo "installing epel-release...."
+                sleep 3
+                echo " " >> /dev/err_file
+               date >> /dev/err_file
+						echo "installing epel-release" >> /dev/err_file
+            yum install epel-release -y 2>> /dev/err_file
+            if [ $? -eq 0 ]
+            then
+                                clear
+
+                echo "epel-release installed successfully"
+                                sleep 3
+            else
+                echo "epel-release failled to installed"
+				echo ""
+				echo "epel-release failled to install" >> /dev/err_file
+				echo "READ THE ERROR FILE AT /dev/err_file"
+				sleep 6
+            fi
+			
+#/////////// END INSTALLATION FOR CentOS...........
+			
+#########..... STARTING INSTALLING FOR ORACLE..................................................................
+
+        
+		
+              
+
+#///////END INSTALLATION FOR Oracle	
+
+
+#######.....STARTING INSITALLATION FOR UBUNTU.........
+        elif [ $type = "Ubuntu" ]
+        then
+            echo -e "You are about to install the following packages: \n wget \n net-tools \n sysstat \n finger \n gcc \n make \n python3 \n epel-release \n git "
+		echo "" 
+		sleep 3
+                #installing finger
+                        echo "installing finger....."
+                        sleep 3
+                        echo " " >> /dev/err_file
+						date >> /dev/err_file
+						echo "installing finger" >> /dev/err_file
+           apt install finger -y 2>> /dev/err_file
+            if [ $? -eq 0 ]
+            then
+                                clear
+
+                echo "finger installed successfully"
+                                sleep 5
+            else
+                echo "finger failled to installed"
+				echo ""
+				echo "READ THE ERROR FILE AT /dev/err_file"
+				sleep 6
+            fi
+                #installing curl
+                clear
+                echo "installing curl...."
+                sleep 3
+                echo " " >> /dev/err_file
+               date >> /dev/err_file
+						echo "installing curl" >> /dev/err_file
+            apt install curl -y 2>> /dev/err_file
+			
+            if [ $? -eq 0 ]
+            then
+                clear
+
+                echo "curl installed successfully"
+                                sleep 3
+            else
+                echo "curl failled to installed"
+				echo ""
+				echo "READ THE ERROR FILE AT /dev/err_file"
+				sleep 6
+             fi
+             #installing zip
+             clear
+             echo "installing zip...."
+                        sleep 3
+                    
+                echo " " >> /dev/err_file
+                        date >> /dev/err_file
+						echo "installing zip" >> /dev/err_file
+            apt install zip -y 2>> /dev/err_file
+            if [ $? -eq 0 ]
+            then
+                                clear
+
+                echo "zip installed successfully"
+                                sleep 3
+            else
+                echo "zip failled to installed"
+				echo " READ THE ERROR FILE AT /dev/err_file"
+				sleep 6
+            fi
+                #installing net-tools
+                clear
+                echo "installing net-tools...."
+                sleep 3
+                echo " " >> /dev/err_file
+               date >> /dev/err_file
+						echo "installing net-tools" >> /dev/err_file
+            apt install net-tools -y 2>> /dev/err_file
+            if [ $? -eq 0 ]
+            then
+                                clear
+
+                echo "net-tools installed successfully"
+                                sleep 3
+            else
+                echo "net-tools failled to installed"
+				echo ""
+				echo "READ THE ERROR FILE AT /dev/err_file"
+				sleep 6
+            fi
+			
+			#installing sysstat
+                clear
+                echo "installing sysstat...."
+                sleep 3
+                echo " " >> /dev/err_file
+               date >> /dev/err_file
+						echo "installing sysstat" >> /dev/err_file
+            apt install sysstat -y 2>> /dev/err_file
+            if [ $? -eq 0 ]
+            then
+                                clear
+
+                echo "sysstat installed successfully"
+                                sleep 3
+            else
+                echo "sysstat failled to installed"
+				echo ""
+				echo "sysstat failled to install" >> /dev/err_file
+				echo "READ THE ERROR FILE AT /dev/err_file"
+				sleep 6
+            fi
+			
+			#installing wget
+                clear
+                echo "installing wget...."
+                sleep 3
+                echo " " >> /dev/err_file
+               date >> /dev/err_file
+						echo "installing wget" >> /dev/err_file
+            apt install wget -y 2>> /dev/err_file
+            if [ $? -eq 0 ]
+            then
+                                clear
+
+                echo "wget installed successfully"
+                                sleep 3
+            else
+                echo "wget failled to installed"
+				echo ""
+				echo "wget failled to install" >> /dev/err_file
+				echo "READ THE ERROR FILE AT /dev/err_file"
+				sleep 6
+            fi
+			
+			#installing git
+                clear
+                echo "installing git...."
+                sleep 3
+                echo " " >> /dev/err_file
+               date >> /dev/err_file
+						echo "installing git" >> /dev/err_file
+            apt install git -y 2>> /dev/err_file
+            if [ $? -eq 0 ]
+            then
+                                clear
+
+                echo "git installed successfully"
+                                sleep 3
+            else
+                echo "git failled to installed"
+				echo ""
+				echo" git failled to installed " >> /dev/err_file
+				echo "READ THE ERROR FILE AT /dev/err_file"
+				sleep 6
+            fi
+			
+			#installing net-utils
+                clear
+                echo "installing net-utils...."
+                sleep 3
+                echo " " >> /dev/err_file
+               date >> /dev/err_file
+						echo "installing net-utils" >> /dev/err_file
+            apt install net-utils -y 2>> /dev/err_file
+            if [ $? -eq 0 ]
+            then
+                                clear
+
+                echo "net-utils installed successfully"
+                                sleep 3
+            else
+                echo "net-utils failled to installed"
+				echo ""
+				echo "net-utils failled to install" >> /dev/err_file
+				echo "READ THE ERROR FILE AT /dev/err_file"
+				sleep 6
+            fi
+			
+			#installing python3
+                clear
+                echo "installing python3...."
+                sleep 3
+                echo " " >> /dev/err_file
+               date >> /dev/err_file
+						echo "installing python3" >> /dev/err_file
+            apt install python3 -y 2>> /dev/err_file
+            if [ $? -eq 0 ]
+            then
+                                clear
+
+                echo "python3 installed successfully"
+                                sleep 3
+            else
+                echo "python3 failled to installed"
+				echo ""
+				echo "python3 failled to install" >> /dev/err_file
+				echo "READ THE ERROR FILE AT /dev/err_file"
+				sleep 6
+            fi
+			
+			#installing gcc
+                clear
+                echo "installing gcc...."
+                sleep 3
+                echo " " >> /dev/err_file
+               date >> /dev/err_file
+						echo "installing gcc" >> /dev/err_file
+            yum install gcc -y 2>> /dev/err_file
+            if [ $? -eq 0 ]
+            then
+                                clear
+
+                echo "gcc installed successfully"
+                                sleep 3
+            else
+                echo "gcc failled to installed"
+				echo ""
+				echo "gcc failled to install " >> /dev/err_file
+				echo "READ THE ERROR FILE AT /dev/err_file"
+				sleep 6
+            fi
+			
+			#installing epel-release
+                clear
+                echo "installing epel-release...."
+                sleep 3
+                echo " " >> /dev/err_file
+               date >> /dev/err_file
+						echo "installing epel-release" >> /dev/err_file
+            apt install epel-release -y 2>> /dev/err_file
+            if [ $? -eq 0 ]
+            then
+                                clear
+
+                echo "epel-release installed successfully"
+                                sleep 3
+            else
+                echo "epel-release failled to installed"
+				echo ""
+				echo "epel-release failled to install" >> /dev/err_file
+				echo "READ THE ERROR FILE AT /dev/err_file"
+				sleep 6
+                echo "INSTALLATION COMPLETED"
+                sleep 6
+            fi
+		
+		
+              
+        else 
+        clear
+            echo "Make sure you are working with fedora or debian like flavors of linux"
+            sleep 10
+
+               
+        fi
+else
+clear
+    echo ""
+        echo "You are not a root user, this issue will be reported"
+fi
