@@ -45,8 +45,18 @@ then
 	sleep 3
 	sudo systemctl start docker
 	echo ""
-	echo "testing docker"
-	sudo docker run hello-world
+	sleep 4
+	clear
+	
+	###..Installing docker-compose...
+		echo "Installing docker-compose...."
+	sleep 3
+	sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+		sudo chmod +x /usr/local/bin/docker-compose
+		docker -v
+		docker-compose --version
+
 ####...END INSTALLATION FOR CENTOS....
 
 ####...STARTING INSTALLATION FOR UBUNTU...
@@ -80,9 +90,13 @@ then
 		sudo apt-get update
 		sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 		clear
-		echo "testing docker with hello-world..."
+		echo "Installing docker-compose..."
 		sleep 3
-		sudo docker run hello-world
+		sudo curl -L https://github.com/docker/compose/releases/download/1.29.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+		sudo chmod +x /usr/local/bin/docker-compose
+		
+	
+
 	else
 		echo "Please make sure you are running CentOS, Oracle or Ubuntu...."
 		sleep 6
