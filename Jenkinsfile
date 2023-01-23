@@ -11,6 +11,6 @@ pipeline {
                 sh 'zip packages_$(BUILD_NUMBER).zip *'
             }
         }
-        }
+        
     }
 }
