@@ -1,0 +1,8 @@
+command to copy files form local maching to aws EC2 linux instance
+scp -i /c/Users/Emmanuel/Udemy-terraform/utc-key.pem jenkins.zip  ec2-user@ec2-44-201-183-111.compute-1.amazonaws.com:/home/ec2-user
+{ scp -i key-path sourcefile ec2-user@public-dns:/destination}
+whhere: (/c/Users/Emmanuel/Udemy-terraform/utc-key.pem) is my key path
+        (jenkins.zip) is the file I want to copy (source file)
+        ( ec2-user@ec2-44-201-183-111.compute-1.amazonaws.com) is the public dns of my instance
+        (home/ec2-user) is my destination location
+        
