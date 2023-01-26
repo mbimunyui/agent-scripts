@@ -11,12 +11,12 @@ pipeline {
                 sh 'zip packages_$(BUILD_NUMBER).zip *'
             }
         }
-        // stage ('deploy') {
-        //     steps {
-        //         sh 'cp packages_$(BUILD_NUMBER).ZIP /home/ec2-user/newvolume'
-        //     }
-        //new line
-        // }
+        stage ('deploy') {
+            steps {
+                sh 'sudo cp packages_$(BUILD_NUMBER).ZIP /home/ec2-user/newvolume'
+            }
+    
+        }
         
     }
 }
