@@ -11,12 +11,7 @@ pipeline {
                 sh 'zip packages.zip *'
             }
         }
-        stage ('deploy') {
-            steps {
-                sh 'sudo cp packages.ZIP /home/ec2-user/newvolume'
-            }
-    
-        }
+        
         
     }
 }
