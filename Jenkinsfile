@@ -8,12 +8,12 @@ pipeline {
         }
         stage('Build'){
             steps {
-                sh 'zip packages_$(BUILD_NUMBER).zip *'
+                sh 'zip packages.zip *'
             }
         }
         stage ('deploy') {
             steps {
-                sh 'sudo cp packages_$(BUILD_NUMBER).ZIP /home/ec2-user/newvolume'
+                sh 'sudo cp packages.ZIP /home/ec2-user/newvolume'
             }
     
         }
