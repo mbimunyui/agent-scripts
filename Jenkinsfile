@@ -14,6 +14,8 @@ pipeline {
         stage('Deploy'){
             steps {
                 sh 'cp packages_${currentBuild.number}.zip /home/ec2-user/newvolume'
+            }
+        }
         
         
     }
