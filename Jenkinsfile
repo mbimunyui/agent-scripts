@@ -12,7 +12,25 @@ pipeline {
             }
         }
         
-        
+        stage('SSH transfer') {
+ script {
+  sshPublisher(
+   continueOnError: false, failOnError: true,
+   publishers: [
+    sshPublisherDesc(
+     configName: "ansible",
+     verbose: true,
+     transfers: [
+      sshTransfer(
+       sourceFiles: "packages_$(BUILD_NUMBER).zip",
+       
+       remoteDirectory: "/home/ec2-user/ansible_workspace",
+       
+      )
+     ])
+   ])
+ }
+}
        
         
     }
