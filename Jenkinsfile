@@ -16,10 +16,7 @@ pipeline {
                     )])
                   ])
                    
-                  // Execute commands
-                  sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible',
-                    transfers: [ sshTransfer(execCommand: command    )])])
-                     
+                 
             }
             
             
